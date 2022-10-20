@@ -13,5 +13,11 @@ Post.hasMany(Comment, {
 });
 
 Comment.belongsTo(User,{
-    
-})
+
+});
+
+module.exports ={
+    User,
+    Comment,
+    Post
+};
