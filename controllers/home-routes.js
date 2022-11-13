@@ -9,15 +9,15 @@ router.get("/",(req, res)=>{
 
     Post.findAll({
         attributes:[
-            'id',
-            'body',
-            'title',
-            'createdAt'
+            "id",
+            "body",
+            "title",
+            "createdAt"
         ],
         include: [
             {
             model: Comment,
-            attributes:["id", "Comment_text", "post_id", "user_id"],
+            attributes:["id", "comment_text", "post_id", "user_id"],
             include:{
             model: User,
             attributes:["username"]
@@ -43,9 +43,34 @@ router.get("/",(req, res)=>{
         //returns to homepage once users logs on
         router.get("/login",(req, res) =>{
             if(req.session.loggedIn) {
-                res.redirect('/');
+                res.redirect("/");
                 return;
             }
             res.render(login);
         });
         
+        //sign up page 
+        router.get("/signup", (req,res) =>{
+            res.render("signup");
+        });
+
+        // one post to the single post page
+        router.get("post/:id" , (req,res)=>{
+            Post.fineUno({
+                where: {
+                    id: req.params.id
+                },
+                attributes: [
+                    "id",
+                    "body",
+                    "title",
+                    "createdAt"
+                ],
+                include: [
+                    {
+                    model: Comment,
+                    attributes:["id", "comment_text", "post_id"]
+                    }
+                ]
+            })
+        })
