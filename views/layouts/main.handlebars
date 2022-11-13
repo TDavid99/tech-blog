@@ -19,9 +19,22 @@
             id="logout-link"
             >Logout</a></li>
             {{else}}
+            <li class="li-inline nav-item"><a href="/login">login</a></li>
+            {{/if}}
         </ul>
     </nav>
+    <header class="top">
+        <h1 class="tech"<a href="/">TECH BLOG</a></h1>
+    </header>
+
+    <main class="col-auto">
+        {{{body}}}
+    </main>
+    <footer class="flex-row justfiy-center">
+        &copy;Your Tech Ideas Are Welcome here 
+    </footer>
 </body>
     
-</body>
 </html>
+
+<script src="/public/js/logout.js"></script>
