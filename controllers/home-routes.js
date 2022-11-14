@@ -69,7 +69,7 @@ router.get("/",(req, res)=>{
                 include: [
                     {
                     model: Comment,
-                    attributes:["id", "comment_text", "post_id"]
+                    attributes:["id", "comment_text", "m,;.'post_id"]
                     }
                 ]
             })
