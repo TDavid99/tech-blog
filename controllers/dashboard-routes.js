@@ -83,5 +83,16 @@ router.get("/post/:id", (req, res) => {
             res.status(404).json({message: 'id not found'});
             return;
         }
+        //data 
+        const post = dbPostData.get({plain: true});
+
+        // sends data to template
+        res.render ("signle-post",{ post, loggedIn: req.session.loggedIn});
     })
-})
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+module.exports = router;
