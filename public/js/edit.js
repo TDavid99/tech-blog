@@ -18,6 +18,19 @@ async function editFormHandler(event) {
             title,
             body,
         }),
-        he
-    })
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    if (response.ok){
+        document.location.replace("/dashboard/");
+    } else {
+        alert(response.statusText);
+    }
 }
+
+document.querySelector("edit-post-form")
+.addEventListener("submit", editFormHandler);
+document.querySelector("#delete-btn")
+.addEventListener("click", deleteClickHandler);

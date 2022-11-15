@@ -1,4 +1,4 @@
-const signupFormHandler = async function() {
+const signupFormHandler = async function(event) {
     event.preventDefault();
 
     const  usernameE1 = document.querySelector("#username-input-signup");
