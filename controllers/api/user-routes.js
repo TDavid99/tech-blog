@@ -15,7 +15,7 @@ router.get("/", (req, res)=> {
     });
 });
 
-//single user ny id
+//single user By id
 
 router.get("/.:id", (req, res) => {
     User.findOne({
@@ -26,10 +26,40 @@ router.get("/.:id", (req, res) => {
         include: [
             {
                 model: Post,
-                attributes
-            }
-        ]
+                attributes:["Id", "title", "body", "createdAt"]
+            },
+            //model comment
+            {
+                model: Comment,
+                attributes:["id", "comment", "createdAt"],
+                include: {
+                    model:Post,
+                    attributes: ["title"],
+                },
+            },
+        ],
     })
+.then(dbUserData => {
+    if(!dbUserData) {
+        res.status(404).json({message: "invaild user id"});
+        return;
+    }
+    res.json(dbUserData);
+})
+.catch(err =>{
+    console.log(err);
+    res.status(500).json(err);
+});
+
+});
+// add new user
+router.post("/", async (req, res) =>{
+    try{
+     const newUser = await User.create({
+        username: req.body.username,
+        password: req.body.password,
+     });
+     
 })
 // router.post("/", async (req, res) => {
 //     try{
