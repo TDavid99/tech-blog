@@ -59,8 +59,14 @@ router.post("/", async (req, res) =>{
         username: req.body.username,
         password: req.body.password,
      });
-     
-})
+     req.session.save(() => {
+req.sesiion.user_id = newUser.id;
+req.session.username = newUser.username;
+req.session.loggedIn = true;
+
+res.json(newUser);
+     }
+});
 // router.post("/", async (req, res) => {
 //     try{
 //         const newUser
