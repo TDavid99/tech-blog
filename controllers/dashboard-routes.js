@@ -18,7 +18,7 @@ router.get("/", withAuth, (req,res)=>{
         include: [
             {
                 model: Comment,
-                attributes: ["id", "comment_text", "user_id", "createdAt"],
+                attributes: ["id"],
                 include: {
                     model: User,
                 attributes: ["username"]
@@ -41,7 +41,7 @@ router.get("/", withAuth, (req,res)=>{
     });
 });
 // return user to homepage when they log in
-router.get("/login", (res,res) =>{
+router.get("/login", (req,res) =>{
     if(req.session.loggedIn) {
         res.redirect("/");
         return;
