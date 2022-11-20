@@ -46,7 +46,7 @@ router.get("/",(req, res)=>{
                 res.redirect("/");
                 return;
             }
-            res.render(login);
+            res.render("login");
         });
         
         //sign up page 
@@ -70,21 +70,21 @@ router.get("/",(req, res)=>{
                     {
                     model: Comment,
                     attributes:["id", "comment_text", "post_id"],
-                    
+
                     include: {
                         model: User,
-                        attributes: ['username']
+                        attributes: ["username"]
                       }
                     },
                     {
                       model: User,
-                      attributes: ['username']
+                      attributes: ["username"]
                     }
                   ]
                 })
                   .then(dbPostData => {
                     if (!dbPostData) {
-                      res.status(404).json({ message: 'No post found with this id' });
+                      res.status(404).json({ message: "invaild  id" });
                       return;
                     }
               
