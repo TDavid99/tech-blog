@@ -8,30 +8,30 @@ router.get("/",(req, res)=>{
     console.log(req.session);
 
     Post.findAll({
-        attributes:[
-            "id",
-            "body",
-            "title",
-            "createdAt"
-        ],
-        include: [
-            {
-            model: Comment,
-            attributes:["id", "comment_text", "post_id", "user_id"],
-            include:{
-            model: User,
-            attributes:["username"]
-            }
-            },
-            {
-                model: User,
-                attributes: ["username"]
-            }
-        ]
+        // attributes:[
+        //     "id",
+        //     "body",
+        //     "title",
+        //     "createdAt"
+        // ],
+        // include: [
+        //     {
+        //     model: Comment,
+        //     attributes:["id", "comment_text", "post_id", "user_id"],
+        //     include:{
+        //     model: User,
+        //     attributes:["username"]
+        //     }
+        //     },
+        //     {
+        //         model: User,
+        //         attributes: ["username"]
+        //     }
+        // ]
     })
          .then(dbPostData =>{
             //single post object into homepage template
-            const posts = dbPostData.map(post.get({ plain: true}));
+            const posts = dbPostData.map((post)=>{post.get({ plain: true})});
            res.render("homepage", {posts, loggedIn: req.session.loggedIn});
          })
          .catch(err => {
@@ -56,7 +56,7 @@ router.get("/",(req, res)=>{
 
         // one post to the single post page
         router.get("post/:id" , (req,res)=>{
-            Post.fineUno({
+            Post.fineOne({
                 where: {
                     id: req.params.id
                 },
@@ -74,3 +74,4 @@ router.get("/",(req, res)=>{
                 ]
             })
         })
+module.exports = router;
