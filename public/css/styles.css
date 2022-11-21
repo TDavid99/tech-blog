@@ -165,3 +165,67 @@ p {
   border-radius: var(--border-radius);
   text-decoration: none;
 }
+/* CARDS */
+.card {
+  margin: 0 0 20px 0;
+  border: 3px solid var(--dark);
+  border-radius: var(--border-radius);
+}
+
+.card-header {
+  color: var(--primary);
+  background-color: var(--dark);
+  padding: 1%;
+  border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+}
+
+.card-body {
+  padding: 1%;
+}
+
+/* FORM */
+.form-label,
+.form-input,
+.form-textarea {
+  display: block;
+}
+
+.form-label {
+  font-size: 1.1rem;
+  margin: 0 0 0 5px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 1%;
+  margin: 5px 0;
+  font-size: 1.2rem;
+  border: 2px solid var(--light-dark);
+  border-radius: var(--border-radius);
+}
+
+
+.min-100-vh {
+  min-height: 100vh;
+}
+
+.min-100-vw {
+  min-width: 100vw;
+}
+
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ .flex-column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
