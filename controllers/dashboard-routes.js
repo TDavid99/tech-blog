@@ -51,7 +51,7 @@ router.get("/login", (req,res) =>{
 
 //one post to single post page
 router.get("/post/:id", (req, res) => {
-    Post.fineUno({
+    Post.findOne({
         where: {
             id: req.params.id
         },
