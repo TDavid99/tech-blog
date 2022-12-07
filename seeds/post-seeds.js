@@ -33,6 +33,6 @@ const postdata = [
   },
 ];
 
-const seedUsers = () => Post.bulkCreate(post_data);
+const seedUsers = () => Post.bulkCreate(postdata);
 
 module.exports = seedUsers;
