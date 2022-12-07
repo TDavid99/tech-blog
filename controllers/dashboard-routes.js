@@ -33,7 +33,7 @@ router.get("/", withAuth, (req,res)=>{
     .then(dbPostData =>{
         //single post object pass to homepage template
         const posts = dbPostData.map(post => post.get({ plain: true}));
-        res.render("homepage", {post, loggedIn: req.session.loggedIn });
+        res.render("homepage", {Post, loggedIn: req.session.loggedIn });
     })
     .catch(err =>{
         console.log(err);
@@ -96,3 +96,6 @@ router.get("/post/:id", (req, res) => {
 });
 
 module.exports = router;
+
+
+
