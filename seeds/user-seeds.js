@@ -39,7 +39,7 @@ const userdata = [
   },
   {
     username: "tpenniell7",
-    email: "kperigo7@china.com.cn",
+    email: "kperigo7@china.com.",
     password: "password123"
   },
   {
