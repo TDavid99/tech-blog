@@ -3,7 +3,7 @@
     <h2>
         Edit Post
     </h2>
-    <form class="edit-post-form">
+    <form class="edit-post-form" id="edit-post">
         <div>
             <input name="Post-title" type="text" size="55" value="{{post.title}}"/>
         </div>
@@ -14,7 +14,9 @@
     </form>
 </article>
 
-<form class="comment-form">
+{{> comment post.comment}}
+
+<form class="comment-form" id="comment-form">
     <div>
         <textarea name="comment-body"></textarea>
     </div>
@@ -24,8 +26,7 @@
     </div>
 </form>
 
-{{> comment post.comment}}
 
 <script src="/js/edit.js"></script>
-<script src="/js/"></script>
+{{!-- <script src="/js/"></script> --}}
 <script src="/js/comment.js"></script>

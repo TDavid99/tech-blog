@@ -2,14 +2,14 @@
 
 //logged on display
 {{#if loggedIn}}
-<form class="comment-form"></form>
+<form class="comment-form" id="new-comment-form">
 
 <div>
     <textarea name="comment-body"></textarea>
 </div>
 
 <div>
-    <button type="Add Comment"></button>
+    <button class="btn" type="submit"> Add comment</button>
 </div>
 </form>
 {{/if}}
