@@ -3,7 +3,7 @@
 // require('dotenv').config();
 
 
-// // let sequelize;
+// let sequelize;
 // //when heroko deloy
 
 // if(process.env.JAWSDB_URL){
@@ -18,6 +18,8 @@
 // });
 // }
 // module.exports = sequelize;
+
+
 const Sequelize = require('sequelize');
 
 require('dotenv').config();
