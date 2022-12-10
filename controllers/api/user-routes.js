@@ -75,9 +75,10 @@ router.post("/login", (req, res) => {
     //expects emails 
     User.findOne({
         where:{
-            email: res.body.email
+            email: req.body.email
         }
     }).then(dbUserData => {
+
         if (!dbUserData) {
             res.status(400).json({message: "invaild user name!"});
             return;
