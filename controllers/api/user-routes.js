@@ -111,28 +111,28 @@ router.post ("/logout", withAuth, (req, res) => {
         }
 
 });
-//Update a user
-//  router.put("/:id", withAuth, (req,res) =>{
-//     User.update(req.body, {
-//         individualHooks: true,
-//         where: {
-//             id: req.params.id
-//         }
-//     })
-//     .then(dbUserData => {
-//         if(!dbUserData[0]) {
-//             res.status(404).json({message: "invaild user id"});
-//             return;
-//         }
-//         res.json(dbUserData);
-//         })
-//         .catch(err => {
-//             console.log(err);
-//             res.status(500).json(err);
-//         });
-//     });
+// Update a user
+ router.put("/:id", withAuth, (req,res) =>{
+    User.update(req.body, {
+        individualHooks: true,
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbUserData => {
+        if(!dbUserData[0]) {
+            res.status(404).json({message: "invaild user id"});
+            return;
+        }
+        res.json(dbUserData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+    });
 
-    //delete user 
+    delete user 
 
     router.delete("/:id", withAuth, (req, res) => {
         User.destroy({
@@ -154,3 +154,5 @@ router.post ("/logout", withAuth, (req, res) => {
     });
     module.exports = router;
  
+
+  

@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
   console.log(req.session);
 
   Post.findAll({
-    include: [User],
+//     include: [User],
     // attributes:[
     //     "id",
     //     "post_url",
@@ -32,9 +32,7 @@ router.get("/", (req, res) => {
   })
     .then((dbPostData) => {
       //single post object into homepage template
-      const posts = dbPostData.map((post) => {
-        post.get({ plain: true });
-      });
+      const posts = dbPostData.map((post) => post.get({ plain: true }));
       res.render("all-post",
        { posts, 
         loggedIn: req.session.loggedIn 
@@ -61,7 +59,7 @@ router.get("/signup", (req, res) => {
 });
 
 // one post to the single post page
-router.get("post/:id", (req, res) => {
+router.get("/post/:id", (req, res) => {
   Post.fineOne({
     where: {
       id: req.params.id,
@@ -102,3 +100,4 @@ router.get("post/:id", (req, res) => {
 });
 
 module.exports = router;
+
