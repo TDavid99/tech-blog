@@ -8,25 +8,25 @@ router.get("/", (req, res) => {
   console.log(req.session);
 
   Post.findAll({
-    include: [User]
+    include: [User],
     // attributes:[
     //     "id",
-    //     "body",
+    //     "post_url",
     //     "title",
     //     "createdAt"
     // ],
     // include: [
     //     {
     //     model: Comment,
-    //     attributes:["id", "comment_text", "post_id", "user_id"],
+    //     attributes:["id", "comment_text", "post_url", "user_id"],
     //     include:{
     //     model: User,
-    //     attributes:["username"]
+    //     attributes:["email"]
     //     }
     //     },
     //     {
     //         model: User,
-    //         attributes: ["username"]
+    //         attributes: ["email"]
     //     }
     // ]
   })
@@ -74,12 +74,12 @@ router.get("post/:id", (req, res) => {
 
         include: {
           model: User,
-          attributes: ["username"],
+          attributes: ["email"],
         },
       },
       {
         model: User,
-        attributes: ["username"],
+        attributes: ["email"],
       },
     ],
   })
