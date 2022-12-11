@@ -9,26 +9,29 @@ router.get("/", withAuth, (req, res) => {
       //Id from session
       user_id: req.session.user_id,
     },
-    attributes: ["id", "body", "title", "createdAt"],
+    attributes: ["id", "post_url", "title", "createdAt"],
     include: [
       {
         model: Comment,
         attributes: ["id"],
         include: {
           model: User,
-          attributes: ["username"],
+          attributes: ["email"],
         },
       },
       {
         model: User,
-        attributes: ["username"],
+        attributes: ["email"],
       },
     ],
   })
     .then((dbPostData) => {
       //single post object pass to homepage template
       const posts = dbPostData.map((post) => post.get({ plain: true }));
-      res.render("homepage", { Post, loggedIn: req.session.loggedIn });
+      res.render("all-post", 
+      { Post, loggedIn: 
+        req.session.loggedIn
+       });
     })
     .catch((err) => {
       console.log(err);
@@ -50,19 +53,19 @@ router.get("/post/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "body", "title", "createdAt"],
+    attributes: ["id", "post_url", "title", "createdAt"],
     include: [
       {
         model: Comment,
         attributes: ["id", "comment_text", "post_id", "user_id", "createdAt"],
         includes: {
           model: User,
-          attributes: ["username"],
+          attributes: ["email"],
         },
       },
       {
         model: User,
-        attributes: ["username"],
+        attributes: ["email"],
       },
     ],
   })
@@ -75,7 +78,7 @@ router.get("/post/:id", (req, res) => {
       const post = dbPostData.get({ plain: true });
 
       // sends data to template
-      res.render("signle-post", { post, loggedIn: req.session.loggedIn });
+      res.render("single-post", { post, loggedIn: req.session.loggedIn });
     })
     .catch((err) => {
       console.log(err);

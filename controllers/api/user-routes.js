@@ -63,7 +63,7 @@ router.post("/", (req, res) =>{
          req.session.save(() => {
 
              req.session.user_id = dbUserData.id;
-             req.session.username = dbUserData.username;
+             req.session.email = dbUserData.email;
              req.session.loggedIn = true;
              
              res.json(dbUserData);
@@ -75,9 +75,10 @@ router.post("/login", (req, res) => {
     //expects emails 
     User.findOne({
         where:{
-            email: res.body.email
+            email: req.body.email
         }
     }).then(dbUserData => {
+
         if (!dbUserData) {
             res.status(400).json({message: "invaild user name!"});
             return;
@@ -92,7 +93,7 @@ router.post("/login", (req, res) => {
         req.session.save(() => {
             //declare session variables
             req.session.user_id = dbUserData.id;
-            req.session.username = dbUserData.username;
+            req.session.email = dbUserData.email;
             req.session.loggedIn = true;
 
             res.json({user: dbUserData, message: "your logged in."});

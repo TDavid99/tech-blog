@@ -2,13 +2,13 @@ async function loginFormHandler(event) {
     event.preventDefault();
 
 
-const usernameE1 = document.querySelector("username-data-login");
-const passwordE1 = document.querySelector("password-data-login");
-
+const emailEl = document.querySelector("#Email-data");
+const passwordE1 = document.querySelector("#Password-data");
+console.log(emailEl.value, passwordE1.value);
 const response = await fetch("/api/user/login", {
     method: "POST",
     body:JSON.stringify({
-        username: usernameE1.value,
+        email: emailEl.value,
         password: passwordE1.value,
     }),
     headers: {"Content-Type": "application/json"},
@@ -16,12 +16,9 @@ const response = await fetch("/api/user/login", {
 
 if (response.ok) {
     document.location.replace("/dashboard");
-    console.log(usernameE1.value);
+    console.log(emailEl.value);
 } else{
     alert("try again invald login");
 }
 };
-document.querySelector("login-form").addEventListener("submit", loginFormHandler);
-
-
-
+document.querySelector("#login").addEventListener("click", loginFormHandler);
