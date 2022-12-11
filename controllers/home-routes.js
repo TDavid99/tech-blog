@@ -5,7 +5,7 @@ const sequelize = require("../config/connections");
 //homepage post
 
 router.get("/", (req, res) => {
-  console.log(req.session);
+  console.log(res.session);
 
   Post.findAll({
 //     include: [User],
@@ -60,11 +60,11 @@ router.get("/signup", (req, res) => {
 
 // one post to the single post page
 router.get("/post/:id", (req, res) => {
-  Post.fineOne({
+  Post.findOne({
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "body", "title", "createdAt"],
+    attributes: ["id", "post_url", "title", "createdAt"],
     include: [
       {
         model: Comment,
