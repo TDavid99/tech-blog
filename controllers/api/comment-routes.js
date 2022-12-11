@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const {Comment, User , Post } = require("../../models");
-const { beforeDestroy } = require("../../models/user");
+// const { beforeDestroy } = require("../../models/user");
 const withAuth = require("../../utils/auth");
 
 //Get all comments
@@ -106,3 +106,4 @@ router.get("/", async (req, res) => {
     });
 module.exports = router;
 
+// 
