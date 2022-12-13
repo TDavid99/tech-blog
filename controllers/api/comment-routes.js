@@ -50,7 +50,7 @@ router.get("/", async (req, res) => {
     router.post("/", async (req, res)=> {
         try {
             const dbCommentData = await Comment.create({
-                comment: req.body.commetn,
+                comment: req.body.comment_text,
                 post_id: req.body.post_id,
                 user_id: req.body.user_id,
             });
@@ -68,7 +68,7 @@ router.get("/", async (req, res) => {
         try {
             const dbCommentData = await Comment.update(
                 {
-                    comment: req.body.comment,
+                    comment: req.body.comment_text,
                     post_id: req.body.post_id,
                     user_id: req.body.user_id,
                 },
