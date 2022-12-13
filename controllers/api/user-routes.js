@@ -111,7 +111,7 @@ router.post ("/logout", withAuth, (req, res) => {
         }
 
 });
-// Update a user
+// Update a userth
  router.put("/:id", withAuth, (req,res) =>{
     User.update(req.body, {
         individualHooks: true,

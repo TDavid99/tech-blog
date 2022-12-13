@@ -1,10 +1,10 @@
 const commentFormHandlers = async function (event){
-    event.preventDeafult;
+    event.preventDefault();
 
-    let post_id = window.location.toString().split("/")[
-        window.location.toString().split("/").atlength -1
-    ];
-    post_id = post_id.split ("?")[0];
+    let post_id = window.location.toString().split("/")
+   
+    console.log(post_id[post_id.length-1].split("?")[0])
+    post_id[post_id.length-1].split("?")[0];
     const comment_text = document.querySelector(
         "textarea[name='comment-body']"
     ).value;
@@ -20,8 +20,8 @@ const commentFormHandlers = async function (event){
                 "Content-Type": "application/json"
             }
         });
-        document.location.reload();
+        // document.location.reload();
     }
 };
 
-document.querySelector("#comment-form").addEventListener("submit", commentFormHandlers);
+document.querySelector("#comment-form").addEventListener("click", commentFormHandlers);

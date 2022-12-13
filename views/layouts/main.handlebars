@@ -19,7 +19,7 @@
             <li class="li-inline nav-item"><a href="/">Home</a></li>
             <li class="li-inline nav-item"><a href="/dashboard">Dashboard</a></li>
             {{#if loggedIn}}
-            <li class="li-inline nav-item"><a href="/logout"id="logout-link">Logout</a></li>
+            <li class="li-inline nav-item"><button id="logout-link">Logout</button></li>
             {{else}}
             <li class="li-inline nav-item"><a href="/login">login</a></li>
             {{/if}}
@@ -31,6 +31,8 @@
 
     <main class="col-auto">
         {{{body}}}
+        {{!-- {{{postdata}}} --}}
+        
     </main>
     <footer class="flex-row justfiy-center">
         &copy;Your Tech Ideas Are Welcome here 
