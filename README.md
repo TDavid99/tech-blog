@@ -18,6 +18,7 @@ this application uses Node.js Express, and Sequelize. Using the MVC paradigm , u
   ```
   express-handlebars, MySQL2, Sequelize, dotenv, bcrypt
   ```
+## Example 
 
   ## Usage
 
