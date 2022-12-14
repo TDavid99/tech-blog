@@ -3,7 +3,7 @@ const {Post} = require("../../models");
 const withAuth = require("../../utils/auth");
 
 router.post("/", withAuth, async(req,res) =>{
-    console.log(body)
+    // console.log(body)
     const body = req.body;
 
     try{
