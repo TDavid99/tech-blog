@@ -19,6 +19,9 @@ this application uses Node.js Express, and Sequelize. Using the MVC paradigm , u
   express-handlebars, MySQL2, Sequelize, dotenv, bcrypt
   ```
 ## Example 
+ https://afternoon-falls-50697.herokuapp.com/
+
+
 
   ## Usage
 
