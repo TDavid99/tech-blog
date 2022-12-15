@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "jest",
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "seed":"node seeds/index.js"
   },
   "repository": {
@@ -21,7 +21,6 @@
   "dependencies": {
     "bcrypt": "^5.1.0",
     "connect-session-sequelize": "^7.1.5",
-    "dev-dependencies": "^1.0.0",
     "dotenv": "^16.0.3",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
@@ -30,9 +29,7 @@
     "mysql2": "^2.3.3",
     "sequelize": "^6.25.3"
   },
-  "keywords": [],
-  "devDependencies": {
-   
-  }
+  "keywords": []
+ 
 }
 
